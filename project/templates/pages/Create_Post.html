@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div dir="rtl">
+    <div class="container">
+        <div class="signup">
+    
+        <div class="col-md-9" >
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4 class="auth-header">انشاء مدونه جديده</h4>
+                
+                    <div class="form-group">
+                        <label for="title">عنوان الموضوع</label>
+                        <input type="text" name="title" id="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Introduction">المقدمة</label>
+                        <textarea name="Introduction" id="Introduction"  rows="8"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <textarea name="subject" id="subject"  rows="8"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">عنوان الموضوع</label>
+                        <input type="file" name="image" id="image">
+                    </div>
+
+                <div class="buttons-w"><button type="submit" class="btn btn-success">اضافة</button></div>
+                
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock content %}
+

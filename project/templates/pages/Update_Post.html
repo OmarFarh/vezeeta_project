@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div dir="rtl">
+    <div class="container">
+        <div class="signup">
+    
+        <div class="col-md-9" >
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4 class="auth-header">تعديل المقالة</h4>
+                
+                {{Post}}
+
+                <div class="buttons-w"><button type="submit" class="btn btn-success">اضافة</button></div>
+                
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock content %}
+

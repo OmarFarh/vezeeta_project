@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div dir="rtl">
+    <div class="container">
+        <div class="signup">
+
+            <div class="col-md-8">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h4 class="auth-header"> احجز ميعاد ...</h4>
+
+
+                    <div class="form-group">
+                        <label for="doctor">اسم الدكتور</label>
+                        <br>
+                        <input type="text" name="doctor" required readonly value="{{user.name}}" id="doctor">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">الأسم</label>
+                        <br>
+                        <input type="text" name="name" required id="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">السن</label>
+                        <br>
+                        <input type="text" name="age" required id="age">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone1">رقم الهاتف 1</label>
+                        <br>
+                        <input type="text" name="phone1" id="phone1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone2">رقم الهاتف 2</label>
+                        <br>
+                        <input type="text" name="phone2" id="phone2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الالكتروني</label>
+                        <br>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">وصف الحالة</label>
+                        <br>
+                        <textarea name="description" id="description" required></textarea>
+                    </div>
+
+                    <div class="buttons-w  "><button type="submit" class="btn btn-danger ml-5">احجز</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

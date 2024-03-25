@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'parts/Header.html' %}
+
+
+
+<!-- job_listing_area_start  -->
+<div class="job_listing_area">
+    <div class="container">
+        {% for order in Order %}
+        <div class="job_lists">
+            <div class="row">
+                <div class="col-lg-10 col-md-10" style="height: 16rem;">
+                    <div class="single_jobs white-bg d-flex justify-content-between">
+                        <div class="jobs_left d-flex align-items-center">
+
+                            <div class="jobs_conetent">
+                                <a href="#">
+                                    <h5>{{order.name}}</h5>
+                                </a>
+                                <h6>دكتور <span style="color: rgb(98, 243, 98);">{{order.doctor.profile.name}}</span></h6>
+
+                                <div class="links_locat">
+                                    <div class="location">
+                                        <p> <i class="fas fa-briefcase-medical"></i> السن <span
+                                                style="color: blue;">{{order.age}}</p>
+                                        <p>رقم الموبايل الأول : <span style="color: blue;">{{order.phone1}}</span> </p>
+                                        <p>رقم الموبايل الثاني : <span style="color: blue;">{{order.phone2}}</span> </p>
+                                        <p><strong>وصف الحالة</strong><span style="color: blue;"></span> </p>
+                                        <p>{{order.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jobs_right">
+                            <div class="apply_now">
+                                <a class="boxed-btn3" href="#">حجز كشف</a>
+                            </div>
+
+                            <div class="rating">
+                                <div class="text-warning">
+                                    <!-- to make image category for clinic image -->
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="rating">
+                                    <h5>تقييم الدكتور</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- job_listing_area_end  -->
+</div>
+
+{% endblock content %}

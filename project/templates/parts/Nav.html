@@ -1,0 +1,62 @@
+{% load static %}
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid " style="background-color: rgba(0, 29, 56, 0.8);" >
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="{% url 'Home' %}">
+                                    <img src="{% static 'img/logo2.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{% url 'Home' %}">احجز دكتورك</a></li>|
+                                        <li><a href="{% url 'Blog_list' %}">المقالات</a></li>|
+                                        {% if user.is_authenticated %}
+                                        <li><a href="{% url 'My_posts' %}">مقالاتي</a></li>|
+                                        <li><a href="{% url 'My_Fv' %}">المفضلة</a></li>|
+                                        <li><a href="{% url 'Order_list' %}">الكشوفات</a></li>|
+                                        <li><a href="{% url 'Create_Post' %}">انشاء منشور</a></li>|
+                                        <li><a href="{% url 'Profile' %}">الصفحه الشخصيه </a></li>|
+                                        {% endif %}
+                                        <!-- <li><a href="contact.html">اتصل بنا</a></li> -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                            <div class="Appointment">
+                                {% if user.is_authenticated %}
+                                <div class="phone_num d-none d-xl-block"></div>
+                                <div class="d-none d-lg-block">
+                                    <a class="boxed-btn3" href="{% url 'Update_Profile' %}">قدم نفسك</a>
+                                </div>
+                                {% else %}
+                                <div class="phone_num d-none d-xl-block">
+                                    <a class="boxed-btn3" href="{% url 'Login' %}">سجل الدخول</a>
+                                </div>
+                                <div class="d-none d-lg-block">
+                                    <a class="boxed-btn3" style="background-color: crimson;" href="">التسجيل</a>
+                                </div>
+                                {% endif %}
+                                
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    </header>
+    <!-- header-end -->

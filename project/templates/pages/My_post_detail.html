@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'parts/Header.html' %}
+
+<div dir="rtl">
+    <!-- bradcam_area  -->
+
+
+
+<div class="bradcam_text " >
+    <h3 >تفاصيل مقالتي</h3>
+</div>
+
+  <!--/ bradcam_area  -->
+
+   <!--================Blog Area =================-->
+<section class="blog_area single-post-area section-padding">
+<div class="container">
+    <div class="row">
+    <div class="col-lg-12 posts-list">
+        <div class="single-post">
+            <div class="feature-img">
+                    
+                <img class="img-fluid image-detail" src="{{Blog_dtl.image.url}}" alt="">
+                <div class="jobs_right">
+                    <div class="apply_now">
+                        <a class="boxed-btn3" href="{% url 'UpdatePost' Blog_dtl.id %}">تعديل المقالة</a>
+                        <a  class="boxed-btn3 delete_blog"  href="{% url 'detlepost' Blog_dtl.id %}" >حذف المقالة</a>
+                    </div>
+                </div>
+            </div>
+            <div class="blog_details">
+                
+                <h2>{{Blog_dtl.title}}</h2>
+                <a id="likebutton" class=" btn btn-primary btn-lg" id="like{{ post.id }}"  data-catid="{{ post.id }}" href="#" data-catid="{{ post.id }}">Like 2</a> </p> <p id="message"></p>
+                <p>{{Blog_dtl.Introduction}}</p>
+                <ul class="blog-info-link mt-3 mb-4">
+                <li><a href="#"><i class="fa fa-comments"></i> 03 كومنتات</a></li>
+                </ul>
+                <p class="excert">{{Blog_dtl.subject}}</p></p>
+            </div>
+        </div>
+        <div class="navigation-top">
+            <div class="d-sm-flex justify-content-between text-center">
+                <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
+                people like this</p>
+                <div class="col-sm-4 text-center my-2 my-sm-0">
+                <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                </div>
+                <ul class="social-icons">
+                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="blog-author">
+            <div class="media align-items-center">
+                <img src="{{Blog_dtl.user.profile.image.url}}" alt="">
+                <div class="media-body">
+                <a href="#">
+                    <h4>تم النشر بواسطه <span style="color: blue;">{{Blog_dtl.user.profile.name}}</span> في تاريخ <span style="color: blue;">{{Blog_dtl.time|date:'d/m/Y'}}</span></h4>
+                </a>
+                <p>{{Blog_dtl.user.profile.subtitle}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="comments-area">
+            <h4>05 Comments</h4>
+            {% for comment in comments %}
+            <div class="comment-list">
+                <div class="single-comment justify-content-between d-flex">
+                    <div class="user justify-content-between d-flex">
+                        <div class="thumb">
+                            <img src="{% static 'img/comment/comment_2.png' %}" alt="">
+                        </div>
+                        <div class="desc">
+                            <p class="comment">{{comment.comment}}
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <h5>
+                                        <a href="#">{{comment.name}}</a>
+                                    </h5>
+                                    <p class="date">{{comment.time|date:'d/m/Y'}}</p>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="comment-form">
+            <h4>Leave a Reply</h4>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                    </div>
+                    <div class="col-12">
+                    <div class="form-group">
+                        <textarea name="comments" id="comments" cols="30" rows="9"
+                            placeholder="Write Comment"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input name="name" id="name" type="text" placeholder="Name">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input name="email" id="email" type="email" placeholder="Email">
+                    </div>
+                </div>
+        
+                </div>
+                <div class="form-group">
+                <button type="submit" class="button button-contactForm btn_1 boxed-btn" >Send Message</button>
+                
+            </div>
+            </form>
+        </div>        </div>
+</div>
+</section>
+</div>
+   <!--================ Blog Area end =================-->
+
+{% endblock content %}
